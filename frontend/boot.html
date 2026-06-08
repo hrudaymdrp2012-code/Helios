@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>HELIOS BOOT</title>
+
+<style>
+
+body{
+
+margin:0;
+
+background:black;
+
+color:cyan;
+
+font-family:Arial,sans-serif;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+height:100vh;
+
+overflow:hidden;
+
+}
+
+#boot{
+
+text-align:center;
+
+}
+
+#title{
+
+font-size:32px;
+
+font-weight:bold;
+
+text-shadow:
+0 0 20px cyan;
+
+margin-bottom:20px;
+
+}
+
+#status{
+
+font-size:14px;
+
+line-height:30px;
+
+}
+
+.cursor{
+
+animation:blink 1s infinite;
+
+}
+
+@keyframes blink{
+
+50%{
+opacity:0;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="boot">
+
+<div id="title">
+
+HELIOS
+
+</div>
+
+<div id="status">
+
+<div id="line1"></div>
+
+<div id="line2"></div>
+
+<div id="line3"></div>
+
+</div>
+
+</div>
+
+<script>
+
+setTimeout(()=>{
+
+document.getElementById(
+"line1"
+).innerHTML =
+"INITIALIZING AI CORE...";
+
+},500);
+
+setTimeout(()=>{
+
+document.getElementById(
+"line2"
+).innerHTML =
+"MEMORY SYSTEM ONLINE";
+
+},1500);
+
+setTimeout(()=>{
+
+document.getElementById(
+"line3"
+).innerHTML =
+"HELIOS READY<span class='cursor'>_</span>";
+
+},2500);
+
+setTimeout(()=>{
+
+window.location.href =
+"login.html";
+
+},4000);
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<script>
+
+const lines = [
+
+"AI CORE ........ ONLINE",
+
+"MEMORY ......... ONLINE",
+
+"VOICE .......... ONLINE",
+
+"NETWORK ........ ONLINE",
+
+"READY"
+
+];
+
+let i = 0;
+
+const boot =
+document.getElementById("boot");
+
+const timer =
+setInterval(()=>{
+
+boot.innerHTML +=
+lines[i] + "<br>";
+
+i++;
+
+if(i===lines.length){
+
+clearInterval(timer);
+
+setTimeout(()=>{
+
+window.location.href =
+"chat.html";
+
+},1500);
+
+}
+
+},800);
+
+</script>

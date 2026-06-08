@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Routine</title>
+
+<style>
+
+body{
+
+background:black;
+color:cyan;
+font-family:Arial;
+
+padding:20px;
+
+}
+
+input{
+
+padding:10px;
+
+margin:5px;
+
+}
+
+button{
+
+padding:10px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>ROUTINE ENGINE</h1>
+
+<input
+id="task"
+placeholder="Task">
+
+<input
+id="time"
+placeholder="Time">
+
+<button
+onclick="saveTask()">
+
+ADD
+
+</button>
+
+<hr>
+
+<div id="tasks">
+
+Loading...
+
+</div>
+
+<script>
+
+async function saveTask(){
+
+let task =
+document.getElementById(
+"task"
+).value;
+
+let time =
+document.getElementById(
+"time"
+).value;
+
+await fetch(
+
+"http://127.0.0.1:8000/routine/add",
+
+{
+method:"POST",
+
+headers:{
+"Content-Type":
+"application/json"
+},
+
+body:JSON.stringify({
+
+task,
+time
+
+})
+
+}
+
+);
+
+loadTasks();
+
+}
+
+async function loadTasks(){
+
+let r =
+await fetch(
+
+"http://127.0.0.1:8000/routine/list"
+
+);
+
+let data =
+await r.json();
+
+let html="";
+
+data.forEach(t=>{
+
+html +=
+`<p>
+
+${t.time}
+→
+${t.task}
+
+</p>`;
+
+});
+
+document.getElementById(
+"tasks"
+).innerHTML =
+html;
+
+}
+
+loadTasks();
+
+</script>
+
+</body>
+
+</html>
